@@ -72,11 +72,11 @@ import build_data
 from six.moves import range
 import tensorflow as tf
 
-FLAGS = tf.app.flags.FLAGS
+FLAGS = tf.app.flags.FLAGS#执行 build_cityscapes_data.py的时候有两个flag 定义如下：
 
 tf.app.flags.DEFINE_string('cityscapes_root',
                            './cityscapes',
-                           'Cityscapes dataset root folder.')
+                           'Cityscapes dataset root folder.') # name：cityscapes_root，默认cityscapes_root=./cityscapes，“python build_cityscapes_data.py -h”帮助查看指令 
 
 tf.app.flags.DEFINE_string(
     'output_dir',
@@ -84,7 +84,7 @@ tf.app.flags.DEFINE_string(
     'Path to save converted SSTable of TensorFlow examples.')
 
 
-_NUM_SHARDS = 10
+_NUM_SHARDS = 10 # The number of shards per dataset split.
 
 # A map from data type to folder name that saves the data.
 _FOLDERS_MAP = {
