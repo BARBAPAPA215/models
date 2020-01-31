@@ -36,8 +36,8 @@
 # Exit immediately if a command exits with a non-zero status.
 set -e
 
-CURRENT_DIR=$(pwd)
-WORK_DIR="."
+CURRENT_DIR=$(pwd) #$可换
+WORK_DIR="." #当前目录下
 
 # Root path for Cityscapes dataset.
 CITYSCAPES_ROOT="${WORK_DIR}/cityscapes"
@@ -48,11 +48,11 @@ python "${CITYSCAPES_ROOT}/cityscapesscripts/preparation/createTrainIdLabelImgs.
 # Build TFRecords of the dataset.
 # First, create output directory for storing TFRecords.
 OUTPUT_DIR="${CITYSCAPES_ROOT}/tfrecord"
-mkdir -p "${OUTPUT_DIR}"
+mkdir -p "${OUTPUT_DIR}" #create nested directories, but only if they don't exist already
 
 BUILD_SCRIPT="${CURRENT_DIR}/build_cityscapes_data.py"
 
-echo "Converting Cityscapes dataset..."
+echo "Converting Cityscapes dataset..." #控制台打印
 python "${BUILD_SCRIPT}" \
   --cityscapes_root="${CITYSCAPES_ROOT}" \
   --output_dir="${OUTPUT_DIR}" \
